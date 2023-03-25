@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter@Setter
 public class Educacion {
     
+    
     private int id;
     private String institucion;
     private String titulo;

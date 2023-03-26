@@ -2,13 +2,25 @@
 package com.portfolio.portfoliodb.model;
 
 import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter@Setter
+@Entity
 public class Persona {
     
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)  
+    private Long id;
+    
+    @Basic
     private String nombre;
     private String apellido;
     private String dni;
@@ -16,12 +28,14 @@ public class Persona {
     private String acerca_de;
     private String correo_electronico;
     private String celular;
+    
+    @Temporal(TemporalType.DATE)
     private Date fecha_Nac;
 
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String correo_electronico, String celular, Date fecha_Nac) {
+    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String correo_electronico, String celular, Date fecha_Nac) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;

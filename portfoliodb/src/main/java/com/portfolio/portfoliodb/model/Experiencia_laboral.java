@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
@@ -32,11 +33,14 @@ public class Experiencia_laboral {
     
     @Temporal(TemporalType.DATE)
     private Date fecha_hasta;
+    
+    @ManyToOne
+    private Persona pers;
 
     public Experiencia_laboral() {
     }
 
-    public Experiencia_laboral(Long id, String empresa, String descripcion, String url_logo, Boolean es_actual, Date fecha_desde, Date fecha_hasta) {
+    public Experiencia_laboral(Long id, String empresa, String descripcion, String url_logo, Boolean es_actual, Date fecha_desde, Date fecha_hasta, Persona pers) {
         this.id = id;
         this.empresa = empresa;
         this.descripcion = descripcion;
@@ -44,7 +48,10 @@ public class Experiencia_laboral {
         this.es_actual = es_actual;
         this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
+        this.pers = pers;
     }
+
+    
     
     
     

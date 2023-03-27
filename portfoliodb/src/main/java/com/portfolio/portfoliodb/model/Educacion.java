@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
@@ -31,18 +32,24 @@ public class Educacion {
     
     @Temporal(TemporalType.DATE)
     private Date fecha_final;
+    
+    @ManyToOne
+    private Persona pers;
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String institucion, String titulo, String url_logoinst, Date fecha_inicio, Date fecha_final) {
+    public Educacion(Long id, String institucion, String titulo, String url_logoinst, Date fecha_inicio, Date fecha_final, Persona pers) {
         this.id = id;
         this.institucion = institucion;
         this.titulo = titulo;
         this.url_logoinst = url_logoinst;
         this.fecha_inicio = fecha_inicio;
         this.fecha_final = fecha_final;
+        this.pers = pers;
     }
+
+    
     
     
     

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,16 +21,22 @@ public class Habilidad {
     @Basic
     private String nombre;
     private int porcentaje;
+    
+    @ManyToOne
+    private Persona pers;
 
     public Habilidad() {
     }
 
-    public Habilidad(Long id, String nombre, int porcentaje) {
+    public Habilidad(Long id, String nombre, int porcentaje, Persona pers) {
         this.id = id;
         this.nombre = nombre;
         this.porcentaje = porcentaje;
+        this.pers = pers;
     }
+
     
+       
     
     
     

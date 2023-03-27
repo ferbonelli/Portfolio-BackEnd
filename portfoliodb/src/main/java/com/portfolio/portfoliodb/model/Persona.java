@@ -2,11 +2,13 @@
 package com.portfolio.portfoliodb.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
@@ -31,11 +33,24 @@ public class Persona {
     
     @Temporal(TemporalType.DATE)
     private Date fecha_Nac;
+    
+    
+    @OneToMany(mappedBy="pers")
+    List<Habilidad> listaHabilidades;
+    
+    @OneToMany(mappedBy="pers")
+    List<Habilidad> listaEducacion;
 
+    @OneToMany(mappedBy="pers")
+    List<Habilidad> listaExperiencia;
+    
+    @OneToMany(mappedBy="pers")
+    List<Habilidad> listaProyecto;
+    
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String correo_electronico, String celular, Date fecha_Nac) {
+    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String correo_electronico, String celular, Date fecha_Nac, List<Habilidad> listaHabilidades, List<Habilidad> listaEducacion, List<Habilidad> listaExperiencia, List<Habilidad> listaProyecto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -45,7 +60,13 @@ public class Persona {
         this.correo_electronico = correo_electronico;
         this.celular = celular;
         this.fecha_Nac = fecha_Nac;
+        this.listaHabilidades = listaHabilidades;
+        this.listaEducacion = listaEducacion;
+        this.listaExperiencia = listaExperiencia;
+        this.listaProyecto = listaProyecto;
     }
+
+    
     
     
     

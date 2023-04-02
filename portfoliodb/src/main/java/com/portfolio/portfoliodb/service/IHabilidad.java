@@ -1,0 +1,19 @@
+
+package com.portfolio.portfoliodb.service;
+
+import com.portfolio.portfoliodb.model.Habilidad;
+import java.util.List;
+
+
+public interface IHabilidad {
+    
+    public List<Habilidad> verHabilidad();
+    
+    public void crearHabilidad(Habilidad habil);
+    
+    public void borrarHabilidad(Long id);
+    
+    public Habilidad buscarHabilidad(Long id);
+    
+    public void modificarHabilidad(Habilidad habil);
+}

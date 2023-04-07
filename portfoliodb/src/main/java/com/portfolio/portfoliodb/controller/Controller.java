@@ -29,10 +29,15 @@ public class Controller {
     
     @Autowired
     private IEducacion educacionServ;
+    @Autowired
     private IExperiencia experienciaServ;
+    @Autowired
     private IHabilidad habilidadServ;
+    @Autowired
     private IPersona persoServ;
+    @Autowired
     private IProyecto proyectoServ;
+    @Autowired
     private IUsuario usuarioServ;
     
     
@@ -113,8 +118,8 @@ public class Controller {
     // Codigo para clase Persona
     // ************************************
     @PostMapping("/new/persona")
-    public void agregarPersona (@RequestBody Persona pers) {
-         persoServ.crearPersona(pers);
+    public void agregarPersona (@RequestBody Persona per) {
+         persoServ.crearPersona(per);
     }
     
     @GetMapping("/ver/personas")
@@ -129,8 +134,8 @@ public class Controller {
     }
     
     @PutMapping("modificar/persona")
-    public void modificarPersona (@RequestBody Persona pers){
-        persoServ.modificarPersona(pers);
+    public void modificarPersona (@RequestBody Persona per){
+        persoServ.modificarPersona(per);
     }
     
     
@@ -163,8 +168,8 @@ public class Controller {
     //Código para usuario
     // ***********************
      @PostMapping("/new/usuario")
-    public void agregarUsuario (@RequestBody Usuario usuario) {
-         usuarioServ.crearUsuario(usuario);
+    public void agregarUsuario (@RequestBody Usuario username) {
+         usuarioServ.crearUsuario(username);
     }
     
     @GetMapping("/ver/usuarios")
@@ -179,8 +184,8 @@ public class Controller {
     }
     
     @PutMapping("modificar/usuario")
-    public void modificarUsuario (@RequestBody Usuario usuario){
-        usuarioServ.modificarUsuario(usuario);
+    public void modificarUsuario (@RequestBody Usuario username){
+        usuarioServ.modificarUsuario(username);
     }
     
     

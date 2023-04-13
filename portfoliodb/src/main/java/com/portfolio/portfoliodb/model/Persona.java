@@ -41,13 +41,13 @@ public class Persona {
     List<Habilidad> listaHabilidades;
     
     @OneToMany(mappedBy="pers")
-    List<Habilidad> listaEducacion;
+    List<Educacion> listaEducacion;
 
     @OneToMany(mappedBy="pers")
-    List<Habilidad> listaExperiencia;
+    List<Experiencia_laboral> listaExperiencia;
     
     @OneToMany(mappedBy="pers")
-    List<Habilidad> listaProyecto;
+    List<Proyecto> listaProyecto;
     
     @OneToOne(mappedBy="pers")
     private Usuario username;
@@ -55,7 +55,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String correo_electronico, String celular, Date fecha_Nac, List<Habilidad> listaHabilidades, List<Habilidad> listaEducacion, List<Habilidad> listaExperiencia, List<Habilidad> listaProyecto, Usuario username) {
+    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String correo_electronico, String celular, Date fecha_Nac, List<Habilidad> listaHabilidades, List<Educacion> listaEducacion, List<Experiencia_laboral> listaExperiencia, List<Proyecto> listaProyecto, Usuario username) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -71,6 +71,8 @@ public class Persona {
         this.listaProyecto = listaProyecto;
         this.username = username;
     }
+
+    
 
     
 

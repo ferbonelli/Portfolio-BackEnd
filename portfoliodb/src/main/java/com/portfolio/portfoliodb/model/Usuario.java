@@ -22,8 +22,7 @@ public class Usuario {
     @Basic
     private String username;
     private String password;
-    private Boolean estadologin;
-    
+        
     @OneToOne
     @JoinColumn(name ="id_persona")
     private Persona pers;
@@ -31,13 +30,14 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String username, String password, Boolean estadologin, Persona pers) {
+    public Usuario(Long id, String username, String password, Persona pers) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.estadologin = estadologin;
         this.pers = pers;
     }
+
+    
        
         
 }

@@ -27,8 +27,7 @@ public class Habilidad {
     private String nombre;
     private int porcentaje;
     
-    @JsonIgnore
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name ="id_persona")
     private Persona pers;
 

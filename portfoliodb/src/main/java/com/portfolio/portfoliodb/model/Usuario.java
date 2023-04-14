@@ -27,8 +27,7 @@ public class Usuario {
     private String username;
     private String password;
     
-    @JsonIgnore    
-    @OneToOne(fetch=FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name ="id_persona")
     private Persona pers;
 

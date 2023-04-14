@@ -1,20 +1,21 @@
 
 package com.portfolio.portfoliodb.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter@Setter
+@Builder
 @Entity
 public class Experiencia_laboral {
     
@@ -27,22 +28,18 @@ public class Experiencia_laboral {
     private String descripcion;
     private String url_logo;
     private Boolean es_actual;
+    private String fecha_desde;
+    private String fecha_hasta;
     
-    
-    @Temporal(TemporalType.DATE)
-    private Date fecha_desde;
-    
-    @Temporal(TemporalType.DATE)
-    private Date fecha_hasta;
-    
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name ="id_persona")
     private Persona pers;
 
     public Experiencia_laboral() {
     }
 
-    public Experiencia_laboral(Long id, String empresa, String descripcion, String url_logo, Boolean es_actual, Date fecha_desde, Date fecha_hasta, Persona pers) {
+    public Experiencia_laboral(Long id, String empresa, String descripcion, String url_logo, Boolean es_actual, String fecha_desde, String fecha_hasta, Persona pers) {
         this.id = id;
         this.empresa = empresa;
         this.descripcion = descripcion;
@@ -52,6 +49,8 @@ public class Experiencia_laboral {
         this.fecha_hasta = fecha_hasta;
         this.pers = pers;
     }
+
+    
 
     
     

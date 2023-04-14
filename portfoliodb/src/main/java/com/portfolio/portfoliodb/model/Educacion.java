@@ -1,20 +1,23 @@
 
 package com.portfolio.portfoliodb.model;
 
-import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter@Setter
+@Builder
 @Entity
 public class Educacion {
     
@@ -26,22 +29,19 @@ public class Educacion {
     private String institucion;
     private String titulo;
     private String url_logoinst;
+    private String fecha_inicio;
+    private String fecha_final;
     
     
-    @Temporal(TemporalType.DATE)
-    private Date fecha_inicio;
-    
-    @Temporal(TemporalType.DATE)
-    private Date fecha_final;
-    
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name ="id_persona")
     private Persona pers;
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String institucion, String titulo, String url_logoinst, Date fecha_inicio, Date fecha_final, Persona pers) {
+    public Educacion(Long id, String institucion, String titulo, String url_logoinst, String fecha_inicio, String fecha_final, Persona pers) {
         this.id = id;
         this.institucion = institucion;
         this.titulo = titulo;
@@ -51,9 +51,6 @@ public class Educacion {
         this.pers = pers;
     }
 
-    
-    
-    
     
     
     

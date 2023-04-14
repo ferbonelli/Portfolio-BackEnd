@@ -95,16 +95,19 @@ public class Controller {
     // ************************************
     // Codigo para clase Habilidad
     // ************************************
+    /*
     @PostMapping("/new/habilidad")
     public void agregarHabilidad (@RequestBody Habilidad habilidad) {
          habilidadServ.crearHabilidad(habilidad);
     }
-    
+*/
+    /*
     @GetMapping("/ver/habilidad")
     @ResponseBody
     public List<Habilidad> verHabilidad(){
         return habilidadServ.verHabilidad();
     }
+*/
     
     @DeleteMapping("/delete/habilidad/{id}")
     public void borrarHabilidad(@PathVariable Long id){

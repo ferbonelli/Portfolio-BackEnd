@@ -90,34 +90,7 @@ public class Controller {
     public void modificarExperiencia (@RequestBody Experiencia_laboral experiencia){
         experienciaServ.modificarExperiencia(experiencia);
     }
-    
-    
-    // ************************************
-    // Codigo para clase Habilidad
-    // ************************************
-    /*
-    @PostMapping("/new/habilidad")
-    public void agregarHabilidad (@RequestBody Habilidad habilidad) {
-         habilidadServ.crearHabilidad(habilidad);
-    }
-*/
-    /*
-    @GetMapping("/ver/habilidad")
-    @ResponseBody
-    public List<Habilidad> verHabilidad(){
-        return habilidadServ.verHabilidad();
-    }
-*/
-    
-    @DeleteMapping("/delete/habilidad/{id}")
-    public void borrarHabilidad(@PathVariable Long id){
-        habilidadServ.borrarHabilidad(id);
-    }
-    
-    @PutMapping("modificar/habilidad")
-    public void modificarHabilidad (@RequestBody Habilidad habilidad){
-        habilidadServ.modificarHabilidad(habilidad);
-    }
+  
     
     // ************************************
     // Codigo para clase Persona

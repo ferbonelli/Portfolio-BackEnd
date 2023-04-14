@@ -82,8 +82,34 @@ public class HabilidadService implements IHabilidad{
         }
         
         return ListaHabilidadesdto;
-             
-                
+                            
     }
+    
+    @Override
+    public void modificarHabilidadDTO(HabilidadDTO habilidadDTO){
+        
+        //Busco la habilidad y la guardo en un objeto
+        Habilidad amodificar=this.buscarHabilidad(habilidadDTO.getId_habilidad());
+        
+        //Cargo los datos desde el DTO
+        amodificar.setNombre(habilidadDTO.getNombre());
+        amodificar.setPorcentaje(habilidadDTO.getPorcentaje());
+        
+        //Lo guardo en la base de datos
+        this.modificarHabilidad(amodificar);
+    
+    }
+    
+    @Override
+    public void borrarHabilidadDTO(Long id) {
+        this.borrarHabilidad(id);
+    }
+    
+    
+    
+    
+    
+    
+    
     
 }

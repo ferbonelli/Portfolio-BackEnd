@@ -23,4 +23,8 @@ public interface IHabilidad {
     public void crearHabilidadDTO(HabilidadDTO habilidadNuevaDTO);
     
     public List<HabilidadDTO> verHabilidadesDTO();
+    
+    public void modificarHabilidadDTO(HabilidadDTO habilidadDTO);
+    
+    public void borrarHabilidadDTO(Long id);
 }

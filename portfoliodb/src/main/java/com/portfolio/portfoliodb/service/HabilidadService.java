@@ -89,14 +89,14 @@ public class HabilidadService implements IHabilidad{
     public void modificarHabilidadDTO(HabilidadDTO habilidadDTO){
         
         //Busco la habilidad y la guardo en un objeto
-        Habilidad amodificar=this.buscarHabilidad(habilidadDTO.getId_habilidad());
+        Habilidad habilidadaModificar=this.buscarHabilidad(habilidadDTO.getId_habilidad());
         
         //Cargo los datos desde el DTO
-        amodificar.setNombre(habilidadDTO.getNombre());
-        amodificar.setPorcentaje(habilidadDTO.getPorcentaje());
+        habilidadaModificar.setNombre(habilidadDTO.getNombre());
+        habilidadaModificar.setPorcentaje(habilidadDTO.getPorcentaje());
         
         //Lo guardo en la base de datos
-        this.modificarHabilidad(amodificar);
+        this.modificarHabilidad(habilidadaModificar);
     
     }
     

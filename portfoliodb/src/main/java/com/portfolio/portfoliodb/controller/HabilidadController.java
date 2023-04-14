@@ -2,7 +2,6 @@
 package com.portfolio.portfoliodb.controller;
 
 import com.portfolio.portfoliodb.dto.HabilidadDTO;
-import com.portfolio.portfoliodb.model.Habilidad;
 import com.portfolio.portfoliodb.service.IHabilidad;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

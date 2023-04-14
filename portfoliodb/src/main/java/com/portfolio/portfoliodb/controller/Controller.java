@@ -3,7 +3,6 @@ package com.portfolio.portfoliodb.controller;
 
 import com.portfolio.portfoliodb.model.Educacion;
 import com.portfolio.portfoliodb.model.Experiencia_laboral;
-import com.portfolio.portfoliodb.model.Habilidad;
 import com.portfolio.portfoliodb.model.Persona;
 import com.portfolio.portfoliodb.model.Proyecto;
 import com.portfolio.portfoliodb.model.Usuario;
@@ -33,8 +32,7 @@ public class Controller {
     private IEducacion educacionServ;
     @Autowired
     private IExperiencia experienciaServ;
-    @Autowired
-    private IHabilidad habilidadServ;
+    
     @Autowired
     private IPersona persoServ;
     @Autowired
@@ -117,29 +115,9 @@ public class Controller {
     }
     
     
-    // *************************************
-    // Codigo para clase Proyecto
-    // *************************************
-    @PostMapping("/new/proyecto")
-    public void agregarProyecto (@RequestBody Proyecto proyecto) {
-         proyectoServ.crearProyecto(proyecto);
-    }
+  
     
-    @GetMapping("/ver/proyecto")
-    @ResponseBody
-    public List<Proyecto> verProyecto(){
-        return proyectoServ.verProyecto();
-    }
-    
-    @DeleteMapping("/delete/proyecto/{id}")
-    public void borrarProyecto(@PathVariable Long id){
-        proyectoServ.borrarProyecto(id);
-    }
-    
-    @PutMapping("modificar/proyecto")
-    public void modificarProyecto (@RequestBody Proyecto proyecto){
-        proyectoServ.modificarProyecto(proyecto);
-    }
+      
     
     
     // ***********************

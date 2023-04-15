@@ -2,12 +2,11 @@
 package com.portfolio.portfoliodb.controller;
 
 import com.portfolio.portfoliodb.model.Educacion;
-import com.portfolio.portfoliodb.model.Experiencia_laboral;
+import com.portfolio.portfoliodb.model.Experiencia;
 import com.portfolio.portfoliodb.model.Persona;
 import com.portfolio.portfoliodb.model.Proyecto;
 import com.portfolio.portfoliodb.model.Usuario;
 import com.portfolio.portfoliodb.service.IEducacion;
-import com.portfolio.portfoliodb.service.IExperiencia;
 import com.portfolio.portfoliodb.service.IHabilidad;
 import com.portfolio.portfoliodb.service.IPersona;
 import com.portfolio.portfoliodb.service.IProyecto;
@@ -28,8 +27,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
     
+    /*
     @Autowired
     private IExperiencia experienciaServ;
+    */
     
     @Autowired
     private IPersona persoServ;
@@ -42,6 +43,7 @@ public class Controller {
     // ****************************************
     // Codigo para clase Experiencia_laboral
     // ****************************************
+    /*
     @PostMapping("/new/experiencia")
     public void agregarExperiencia (@RequestBody Experiencia_laboral experiencia) {
          experienciaServ.crearExperiencia(experiencia);
@@ -62,6 +64,7 @@ public class Controller {
     public void modificarExperiencia (@RequestBody Experiencia_laboral experiencia){
         experienciaServ.modificarExperiencia(experiencia);
     }
+    */
   
     
     // ************************************

@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter@Setter
 @Builder
 @Entity
-public class Experiencia_laboral {
+public class Experiencia {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)  
@@ -30,26 +30,8 @@ public class Experiencia_laboral {
     private String fecha_desde;
     private String fecha_hasta;
     
-    @JsonIgnore
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name ="id_persona")
     private Persona pers;
-
-    public Experiencia_laboral() {
-    }
-
-    public Experiencia_laboral(Long id, String empresa, String descripcion, String url_logo, String fecha_desde, String fecha_hasta, Persona pers) {
-        this.id = id;
-        this.empresa = empresa;
-        this.descripcion = descripcion;
-        this.url_logo = url_logo;
-        this.fecha_desde = fecha_desde;
-        this.fecha_hasta = fecha_hasta;
-        this.pers = pers;
-    }
-
-    
-        
-    
     
 }

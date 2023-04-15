@@ -47,7 +47,7 @@ public class Persona {
 
     @JsonIgnore
     @OneToMany(mappedBy="pers",fetch=FetchType.LAZY)
-    List<Experiencia_laboral> listaExperiencia;
+    List<Experiencia> listaExperiencia;
     
     @JsonIgnore
     @OneToMany(mappedBy="pers",fetch=FetchType.LAZY)
@@ -60,7 +60,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String profesion, String correo_electronico, String celular, String fecha_Nac, List<Habilidad> listaHabilidades, List<Educacion> listaEducacion, List<Experiencia_laboral> listaExperiencia, List<Proyecto> listaProyecto, Usuario username) {
+    public Persona(Long id, String nombre, String apellido, String dni, String url_foto, String acerca_de, String profesion, String correo_electronico, String celular, String fecha_Nac, List<Habilidad> listaHabilidades, List<Educacion> listaEducacion, List<Experiencia> listaExperiencia, List<Proyecto> listaProyecto, Usuario username) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -77,6 +77,8 @@ public class Persona {
         this.listaProyecto = listaProyecto;
         this.username = username;
     }
+
+    
 
        
     

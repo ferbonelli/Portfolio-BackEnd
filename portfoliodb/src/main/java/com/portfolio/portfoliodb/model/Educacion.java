@@ -32,7 +32,7 @@ public class Educacion {
     private String fecha_final;
     
     
-    @JsonIgnore
+    
     @ManyToOne
     @JoinColumn(name ="id_persona")
     private Persona pers;

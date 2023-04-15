@@ -4,6 +4,7 @@ package com.portfolio.portfoliodb.service;
 import com.portfolio.portfoliodb.dto.UsuarioDTO;
 import com.portfolio.portfoliodb.model.Usuario;
 import com.portfolio.portfoliodb.repository.UsuarioRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ public class UsuarioService implements IUsuario {
 
     @Autowired
     public UsuarioRepository usuarioRepo;
+    
+    @Autowired
+    private IPersona persoServ;
     
     
     @Override
@@ -41,6 +45,7 @@ public class UsuarioService implements IUsuario {
     }
     
     // Código para los DTO
+    @Override
     public void crearUsuarioDTO(UsuarioDTO usuarioNuevoDTO){
     
         Usuario usuarionuevo=
@@ -48,8 +53,50 @@ public class UsuarioService implements IUsuario {
                         .id(usuarioNuevoDTO.getId_usuario())
                         .username(usuarioNuevoDTO.getUsername())
                         .password(usuarioNuevoDTO.getPassword())
+                        .pers(persoServ.buscarPersona(usuarioNuevoDTO.getId_persona()))
                         .build();
+        this.crearUsuario(usuarionuevo);
     }
     
+    @Override
+    public List<UsuarioDTO> verUsuariosDTO(){
     
+    // Lista de usuarios de los dto
+        List<UsuarioDTO> ListaUsuariosdto = new ArrayList<>();
+        
+        // Lista de Usuarios desde la entidad Habilidad
+        List<Usuario> ListaUsuarios= this.verUsuarios();
+        
+        // Asigno los valores de la entidad al dto
+        for (Usuario usuario :ListaUsuarios) {
+            UsuarioDTO dto = 
+                    UsuarioDTO.builder()
+                        .id_usuario(usuario.getId())
+                            .username(usuario.getUsername())
+                            .password(usuario.getPassword())
+                            .id_persona(usuario.getPers().getId())
+                        .build();
+            ListaUsuariosdto.add(dto);
+                             
+        }
+        return ListaUsuariosdto;
+                
+    }
+    
+    public void modificarUsuarioDTO(UsuarioDTO usuarioDTO){
+    
+        //Busco el usuario y la guardo en un objeto
+        Usuario usuarioaModificar=this.buscarUsuario(usuarioDTO.getId_persona());
+        
+        //Cargo los datos desde el DTO
+        usuarioaModificar.setUsername(usuarioDTO.getUsername());
+        usuarioaModificar.setPassword(usuarioDTO.getPassword());
+                
+        //Lo guardo en la base de datos
+        this.modificarUsuario(usuarioaModificar);
+    }
+    
+    public void borrarUsuarioDTO(Long id){
+    this.borrarUsuario(id);
+    }
 }

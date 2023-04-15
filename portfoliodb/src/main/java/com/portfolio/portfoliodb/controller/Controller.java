@@ -29,42 +29,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     
     @Autowired
-    private IEducacion educacionServ;
-    @Autowired
     private IExperiencia experienciaServ;
     
     @Autowired
     private IPersona persoServ;
-    @Autowired
-    private IProyecto proyectoServ;
+    
     @Autowired
     private IUsuario usuarioServ;
     
     
-    // ************************************
-    // Codigo para clase Educación
-    // ************************************
-    @PostMapping("/new/educacion")
-    public void agregarEducacion (@RequestBody Educacion educacion) {
-         educacionServ.crearEducacion(educacion);
-    }
-    
-    @GetMapping("/ver/educacion")
-    @ResponseBody
-    public List<Educacion> verEducacion(){
-        return educacionServ.verEducacion();
-    }
-    
-    @DeleteMapping("/delete/educacion/{id}")
-    public void borrarEducacion(@PathVariable Long id){
-        educacionServ.borrarEducacion(id);
-    }
-    
-    @PutMapping("modificar/educacion")
-    public void modificarEducacion (@RequestBody Educacion educacion){
-        educacionServ.modificarEducacion(educacion);
-    }
-    
+        
     // ****************************************
     // Codigo para clase Experiencia_laboral
     // ****************************************

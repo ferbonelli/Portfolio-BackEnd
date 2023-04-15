@@ -1,6 +1,7 @@
 
 package com.portfolio.portfoliodb.service;
 
+import com.portfolio.portfoliodb.dto.UsuarioDTO;
 import com.portfolio.portfoliodb.model.Usuario;
 import com.portfolio.portfoliodb.repository.UsuarioRepository;
 import java.util.List;
@@ -37,6 +38,17 @@ public class UsuarioService implements IUsuario {
     @Override
     public void modificarUsuario(Usuario usuario) {
         usuarioRepo.save(usuario);
+    }
+    
+    // Código para los DTO
+    public void crearUsuarioDTO(UsuarioDTO usuarioNuevoDTO){
+    
+        Usuario usuarionuevo=
+                Usuario.builder()
+                        .id(usuarioNuevoDTO.getId_usuario())
+                        .username(usuarioNuevoDTO.getUsername())
+                        .password(usuarioNuevoDTO.getPassword())
+                        .build();
     }
     
     

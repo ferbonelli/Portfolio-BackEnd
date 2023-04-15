@@ -1,10 +1,8 @@
 
 package com.portfolio.portfoliodb.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +23,7 @@ public class Experiencia {
     
     @Basic
     private String empresa;
+    private String puesto;
     private String descripcion;
     private String url_logo;
     private String fecha_desde;
@@ -33,5 +32,22 @@ public class Experiencia {
     @ManyToOne
     @JoinColumn(name ="id_persona")
     private Persona pers;
+
+    public Experiencia() {
+    }
+
+    public Experiencia(Long id, String empresa, String puesto, String descripcion, String url_logo, String fecha_desde, String fecha_hasta, Persona pers) {
+        this.id = id;
+        this.empresa = empresa;
+        this.puesto = puesto;
+        this.descripcion = descripcion;
+        this.url_logo = url_logo;
+        this.fecha_desde = fecha_desde;
+        this.fecha_hasta = fecha_hasta;
+        this.pers = pers;
+    }
+
+      
+    
     
 }

@@ -22,25 +22,25 @@ public class HabilidadController {
     private IHabilidad habilidadServ;
     
     // Endpoint para agregar una habilidad
-    @PostMapping("/new/habilidad")
+    @PostMapping("/habilidad")
     public void agregarHabilidad (@RequestBody HabilidadDTO habilidad) {
          habilidadServ.crearHabilidadDTO(habilidad);
     }
            
     
     // Endpoint para recuperar las habilidades
-    @GetMapping("/ver/habilidad")
+    @GetMapping("/habilidad")
     @ResponseBody
     public List<HabilidadDTO> verHabilidad(){
         return habilidadServ.verHabilidadesDTO();
     }
     
-    @PutMapping("modificar/habilidad")
+    @PutMapping("/habilidad")
     public void modificarHabilidad (@RequestBody HabilidadDTO habilidad){
         habilidadServ.modificarHabilidadDTO(habilidad);
     }
     
-    @DeleteMapping("/delete/habilidad/{id}")
+    @DeleteMapping("/habilidad/{id}")
     public void borrarHabilidad(@PathVariable Long id){
         habilidadServ.borrarHabilidadDTO(id);
     }

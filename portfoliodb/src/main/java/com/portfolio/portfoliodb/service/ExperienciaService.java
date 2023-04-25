@@ -51,7 +51,7 @@ public class ExperienciaService implements IExperiencia{
         Experiencia experiencianueva=
                 
         Experiencia.builder()
-                .id(experienciaNuevaDTO.getId_experiencia())
+                
                 .empresa(experienciaNuevaDTO.getEmpresa())
                 .puesto(experienciaNuevaDTO.getPuesto())
                 .descripcion(experienciaNuevaDTO.getDescripcion())
@@ -114,6 +114,30 @@ public class ExperienciaService implements IExperiencia{
     @Override
     public void borrarExperienciaDTO(Long id){
     this.borrarExperiencia(id);
+    }
+    
+    @Override
+    public ExperienciaDTO buscarExperienciaDTO(Long id){
+     //Busco la experiencia y la guardo en un objeto
+        Experiencia experienciaaModificar=this.buscarExperiencia(id);
+        
+     // Mapeo la experiencia a experienciaDTO
+     
+     ExperienciaDTO experienciaaModificarDTO =
+             
+             ExperienciaDTO.builder()
+                     .id_experiencia( experienciaaModificar.getId())
+                     .empresa( experienciaaModificar.getEmpresa())
+                     .descripcion( experienciaaModificar.getDescripcion())
+                     .puesto( experienciaaModificar.getPuesto())
+                     .fecha_desde( experienciaaModificar.getFecha_desde())
+                     .fecha_hasta( experienciaaModificar.getFecha_hasta())
+                     .url_logo( experienciaaModificar.getUrl_logo())
+                     .id_persona( experienciaaModificar.getPers().getId())
+                  .build();
+    
+             return experienciaaModificarDTO;   
+        
     }
     
 }

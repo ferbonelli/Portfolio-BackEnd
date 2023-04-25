@@ -49,7 +49,7 @@ public class ProyectoService implements IProyecto {
     Proyecto proyectonuevo=
                 
                 Proyecto.builder()
-                        .id(proyectoNuevoDTO.getId_proyecto())
+                        
                         .nombre(proyectoNuevoDTO.getNombre())
                         .descripcion(proyectoNuevoDTO.getDescripcion())
                         .fecha_inicio(proyectoNuevoDTO.getFecha_inicio())

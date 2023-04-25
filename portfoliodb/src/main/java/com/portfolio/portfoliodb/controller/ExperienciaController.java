@@ -20,25 +20,32 @@ public class ExperienciaController {
     @Autowired
     private IExperiencia experienciaServ;
     
-    @PostMapping("/new/experiencia")
+    @PostMapping("/experiencia")
     public void agregarExperiencia (@RequestBody ExperienciaDTO experiencia) {
          experienciaServ.crearExperienciaDTO(experiencia);
     }
     
-    @GetMapping("/ver/experiencia")
+    @GetMapping("/experiencia")
     @ResponseBody
     public List<ExperienciaDTO> verExperiencia(){
         return experienciaServ.verExperienciaDTO();
     }
     
-    @DeleteMapping("/delete/experiencia/{id}")
+    @DeleteMapping("/experiencia/{id}")
     public void borrarExperiencia(@PathVariable Long id){
         experienciaServ.borrarExperienciaDTO(id);
     }
     
-    @PutMapping("modificar/experiencia")
+    @PutMapping("/experiencia")
     public void modificarExperiencia (@RequestBody ExperienciaDTO experiencia){
         experienciaServ.modificarExperienciaDTO(experiencia);
+    }
+    
+    // Endpoint para devolver datos de una experiencia por id
+    @GetMapping("/experiencia/{id}")
+    @ResponseBody
+    public ExperienciaDTO verExperienciaDTO(@PathVariable Long id){
+        return experienciaServ.buscarExperienciaDTO(id);
     }
     
 }

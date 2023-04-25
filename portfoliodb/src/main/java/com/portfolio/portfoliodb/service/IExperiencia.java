@@ -28,4 +28,6 @@ public interface IExperiencia {
     
     public void borrarExperienciaDTO(Long id);
     
+    public ExperienciaDTO buscarExperienciaDTO(Long id);
+    
 }

@@ -28,5 +28,7 @@ public interface IEducacion {
     
     public void borrarEducacionDTO(Long id);
     
+    public EducacionDTO buscarEducacionDTO(Long id);
+    
     
 }

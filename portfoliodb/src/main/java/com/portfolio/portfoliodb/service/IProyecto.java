@@ -26,4 +26,6 @@ public interface IProyecto {
     public void modificarProyectoDTO(ProyectoDTO proyectoDTO);
     
     public void borrarProyectoDTO(Long id);
+    
+    public ProyectoDTO buscarProyectoDTO(Long id);
 }

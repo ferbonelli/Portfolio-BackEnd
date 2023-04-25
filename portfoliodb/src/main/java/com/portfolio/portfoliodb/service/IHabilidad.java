@@ -27,4 +27,6 @@ public interface IHabilidad {
     public void modificarHabilidadDTO(HabilidadDTO habilidadDTO);
     
     public void borrarHabilidadDTO(Long id);
+    
+    public HabilidadDTO buscarHabilidadDTO(Long id);
 }

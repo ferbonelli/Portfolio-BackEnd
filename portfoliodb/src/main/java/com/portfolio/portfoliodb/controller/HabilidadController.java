@@ -45,4 +45,11 @@ public class HabilidadController {
         habilidadServ.borrarHabilidadDTO(id);
     }
     
+    // Endpoint para devolver datos de una habilidad por id
+    @GetMapping("/habilidad/{id}")
+    @ResponseBody
+    public HabilidadDTO verHabilidad(@PathVariable Long id){
+        return habilidadServ.buscarHabilidadDTO(id);
+    }
+    
 }

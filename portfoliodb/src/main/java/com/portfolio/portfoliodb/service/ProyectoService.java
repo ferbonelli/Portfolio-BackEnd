@@ -108,4 +108,27 @@ public class ProyectoService implements IProyecto {
     this.borrarProyecto(id);
     }
     
+    @Override
+    public ProyectoDTO buscarProyectoDTO(Long id){
+    
+        //Busco el proyecto y la guardo en un objeto
+        Proyecto proyectoaModificar=this.buscarProyecto(id);
+        
+     // Mapeo el proyecto a proyectoDTO
+     
+     ProyectoDTO proyectoaModificarDTO =
+             
+             ProyectoDTO.builder()
+                    .id_proyecto(proyectoaModificar.getId())
+                    .nombre(proyectoaModificar.getNombre())
+                    .descripcion(proyectoaModificar.getDescripcion())
+                    .fecha_inicio(proyectoaModificar.getFecha_inicio())
+                    .fecha_final(proyectoaModificar.getFecha_final())
+                    .url_proyecto(proyectoaModificar.getUrl_proyecto())
+                    .id_persona(proyectoaModificar.getPers().getId())
+                  .build();
+    
+             return proyectoaModificarDTO;   
+    }
+    
 }

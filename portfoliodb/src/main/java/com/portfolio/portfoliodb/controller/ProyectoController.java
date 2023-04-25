@@ -2,7 +2,6 @@
 package com.portfolio.portfoliodb.controller;
 
 import com.portfolio.portfoliodb.dto.ProyectoDTO;
-import com.portfolio.portfoliodb.model.Proyecto;
 import com.portfolio.portfoliodb.service.IProyecto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,27 +22,34 @@ public class ProyectoController {
     private IProyecto proyectoServ;
     
     // Endpoint para agregar un proyecto
-    @PostMapping("/new/proyecto")
+    @PostMapping("/proyecto")
     public void agregarProyecto (@RequestBody ProyectoDTO proyecto) {
          proyectoServ.crearProyectoDTO(proyecto);
     }
     
     // Endpoint para ver Proyectos
-    @GetMapping("/ver/proyecto")
+    @GetMapping("/proyecto")
     @ResponseBody
     public List<ProyectoDTO> verProyecto(){
         return proyectoServ.verProyectosDTO();
     }
     
     //Endpoint para modificar proyectos
-    @PutMapping("modificar/proyecto")
+    @PutMapping("/proyecto")
     public void modificarProyecto (@RequestBody ProyectoDTO proyecto){
         proyectoServ.modificarProyectoDTO(proyecto);
     }
     
-    @DeleteMapping("/delete/proyecto/{id}")
+    @DeleteMapping("/proyecto/{id}")
     public void borrarProyecto(@PathVariable Long id){
         proyectoServ.borrarProyectoDTO(id);
+    }
+    
+    // Endpoint para devolver datos de un proyecto por id
+    @GetMapping("/proyecto/{id}")
+    @ResponseBody
+    public ProyectoDTO verHabilidad(@PathVariable Long id){
+        return proyectoServ.buscarProyectoDTO(id);
     }
     
 }

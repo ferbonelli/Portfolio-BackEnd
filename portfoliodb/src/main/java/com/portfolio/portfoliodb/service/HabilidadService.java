@@ -51,7 +51,7 @@ public class HabilidadService implements IHabilidad{
         Habilidad habilidadnueva=
                 
                 Habilidad.builder()
-                        .id(habilidadNuevaDTO.getId_habilidad())
+                        
                         .nombre(habilidadNuevaDTO.getNombre())
                         .porcentaje(habilidadNuevaDTO.getPorcentaje())
                         .pers(persoServ.buscarPersona(habilidadNuevaDTO.getId_persona()))
@@ -103,6 +103,26 @@ public class HabilidadService implements IHabilidad{
     @Override
     public void borrarHabilidadDTO(Long id) {
         this.borrarHabilidad(id);
+    }
+    
+    @Override
+    public HabilidadDTO buscarHabilidadDTO(Long id){
+         
+     //Busco la habilidad y la guardo en un objeto
+        Habilidad habilidadaModificar=this.buscarHabilidad(id);
+        
+     // Mapeo la habilidad a habilidadDTO
+     
+     HabilidadDTO habilidadaModificarDTO =
+             
+             HabilidadDTO.builder()
+                     .id_habilidad(habilidadaModificar.getId())
+                     .nombre(habilidadaModificar.getNombre())
+                     .porcentaje(habilidadaModificar.getPorcentaje())
+                     .id_persona(habilidadaModificar.getPers().getId())
+                  .build();
+    
+             return habilidadaModificarDTO;   
     }
     
     

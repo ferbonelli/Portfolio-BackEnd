@@ -19,7 +19,7 @@ public class UsuarioController {
     @Autowired
     private IUsuario usuarioServ;
     
-     @PostMapping("/new/usuario")
+     @PostMapping("/usuario")
     public void agregarUsuario (@RequestBody UsuarioDTO usuario) {
          usuarioServ.crearUsuarioDTO(usuario);
     }
@@ -30,14 +30,21 @@ public class UsuarioController {
         return usuarioServ.verUsuariosDTO();
     }
     
-    @DeleteMapping("/delete/usuario/{id}")
+    @DeleteMapping("/usuario/{id}")
     public void borrarUsuario(@PathVariable Long id){
         usuarioServ.borrarUsuarioDTO(id);
     }
     
-    @PutMapping("modificar/usuario")
+    @PutMapping("/usuario")
     public void modificarUsuario (@RequestBody UsuarioDTO usuario){
         usuarioServ.modificarUsuarioDTO(usuario);
+    }
+    
+    // Endpoint para devolver datos del usuario por id
+    @GetMapping("/usuario/{id}")
+    @ResponseBody
+    public UsuarioDTO verUsuario(@PathVariable Long id){
+        return usuarioServ.buscarUsuarioDTO(id);
     }
     
 }

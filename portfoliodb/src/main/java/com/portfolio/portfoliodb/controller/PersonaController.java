@@ -20,25 +20,32 @@ public class PersonaController {
     @Autowired
     private IPersona persoServ;
     
-    @PostMapping("/new/persona")
+    @PostMapping("/persona")
     public void agregarPersona (@RequestBody PersonaDTO persona) {
          persoServ.crearPersonaDTO(persona);
     }
     
-    @GetMapping("/ver/personas")
+    @GetMapping("/persona")
     @ResponseBody
     public List<PersonaDTO> verPersona(){
         return persoServ.verPersonasDTO();
     }
     
-    @DeleteMapping("/delete/persona/{id}")
+    @DeleteMapping("/persona/{id}")
     public void borrarPersona(@PathVariable Long id){
         persoServ.borrarPersonaDTO(id);
     }
     
-    @PutMapping("modificar/persona")
+    @PutMapping("persona")
     public void modificarPersona (@RequestBody PersonaDTO persona){
         persoServ.modificarPersonaDTO(persona);
+    }
+    
+    // Endpoint para devolver datos de una persona por id
+    @GetMapping("/persona/{id}")
+    @ResponseBody
+    public PersonaDTO verPersona(@PathVariable Long id){
+        return persoServ.buscarPersonaDTO(id);
     }
     
     

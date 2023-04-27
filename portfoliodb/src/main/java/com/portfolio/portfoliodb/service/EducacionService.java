@@ -118,23 +118,23 @@ public class EducacionService implements IEducacion{
     public EducacionDTO buscarEducacionDTO(Long id){
     
         //Busco la educacion y la guardo en un objeto
-        Educacion educacionaModificar=this.buscarEducacion(id);
+        Educacion educacionaBuscada=this.buscarEducacion(id);
         
      // Mapeo la educacion a experienciaDTO
      
-     EducacionDTO educacionaModificarDTO =
+     EducacionDTO educacionBuscadaDTO =
              
              EducacionDTO.builder()
-                     .id_educacion(educacionaModificar.getId())
-                     .institucion(educacionaModificar.getInstitucion())
-                     .titulo(educacionaModificar.getTitulo())
-                     .fecha_inicio(educacionaModificar.getFecha_inicio())
-                     .fecha_final(educacionaModificar.getFecha_final())
-                     .url_logoinst(educacionaModificar.getUrl_logoinst())
-                     .id_persona(educacionaModificar.getPers().getId())
+                     .id_educacion(educacionaBuscada.getId())
+                     .institucion(educacionaBuscada.getInstitucion())
+                     .titulo(educacionaBuscada.getTitulo())
+                     .fecha_inicio(educacionaBuscada.getFecha_inicio())
+                     .fecha_final(educacionaBuscada.getFecha_final())
+                     .url_logoinst(educacionaBuscada.getUrl_logoinst())
+                     .id_persona(educacionaBuscada.getPers().getId())
                    .build();
     
-             return educacionaModificarDTO;   
+             return educacionBuscadaDTO;   
         
     }
     

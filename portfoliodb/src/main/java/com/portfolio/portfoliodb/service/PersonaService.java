@@ -116,4 +116,33 @@ public class PersonaService implements IPersona{
     this.borrarPersona(id);
     }
     
+    
+    @Override
+    public PersonaDTO buscarPersonaDTO(Long id){
+         
+     //Busco la persona y la guardo en un objeto
+        Persona personaBuscada=this.buscarPersona(id);
+        
+     // Mapeo la persona a personaDTO
+     
+     PersonaDTO personaBuscadaDTO =
+             
+             PersonaDTO.builder()
+                     .id_persona(personaBuscada.getId())
+                     .nombre(personaBuscada.getNombre())
+                     .apellido(personaBuscada.getApellido())
+                     .dni(personaBuscada.getDni())
+                     .url_foto(personaBuscada.getUrl_foto())
+                     .acerca_de(personaBuscada.getAcerca_de())
+                     .profesion(personaBuscada.getProfesion())
+                     .correo_electronico(personaBuscada.getCorreo_electronico())
+                     .celular(personaBuscada.getCelular())
+                     .fecha_Nac(personaBuscada.getFecha_Nac())
+                  .build();
+    
+             return personaBuscadaDTO;   
+    }
+    
+     
+    
 }

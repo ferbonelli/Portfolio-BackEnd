@@ -109,20 +109,20 @@ public class HabilidadService implements IHabilidad{
     public HabilidadDTO buscarHabilidadDTO(Long id){
          
      //Busco la habilidad y la guardo en un objeto
-        Habilidad habilidadaModificar=this.buscarHabilidad(id);
+        Habilidad habilidadBuscada=this.buscarHabilidad(id);
         
      // Mapeo la habilidad a habilidadDTO
      
-     HabilidadDTO habilidadaModificarDTO =
+     HabilidadDTO habilidadBuscadaDTO =
              
              HabilidadDTO.builder()
-                     .id_habilidad(habilidadaModificar.getId())
-                     .nombre(habilidadaModificar.getNombre())
-                     .porcentaje(habilidadaModificar.getPorcentaje())
-                     .id_persona(habilidadaModificar.getPers().getId())
+                     .id_habilidad(habilidadBuscada.getId())
+                     .nombre(habilidadBuscada.getNombre())
+                     .porcentaje(habilidadBuscada.getPorcentaje())
+                     .id_persona(habilidadBuscada.getPers().getId())
                   .build();
     
-             return habilidadaModificarDTO;   
+             return habilidadBuscadaDTO;   
     }
     
     

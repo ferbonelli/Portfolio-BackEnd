@@ -119,24 +119,24 @@ public class ExperienciaService implements IExperiencia{
     @Override
     public ExperienciaDTO buscarExperienciaDTO(Long id){
      //Busco la experiencia y la guardo en un objeto
-        Experiencia experienciaaModificar=this.buscarExperiencia(id);
+        Experiencia experienciaBuscada=this.buscarExperiencia(id);
         
      // Mapeo la experiencia a experienciaDTO
      
-     ExperienciaDTO experienciaaModificarDTO =
+     ExperienciaDTO experienciaBuscadaDTO =
              
              ExperienciaDTO.builder()
-                     .id_experiencia( experienciaaModificar.getId())
-                     .empresa( experienciaaModificar.getEmpresa())
-                     .descripcion( experienciaaModificar.getDescripcion())
-                     .puesto( experienciaaModificar.getPuesto())
-                     .fecha_desde( experienciaaModificar.getFecha_desde())
-                     .fecha_hasta( experienciaaModificar.getFecha_hasta())
-                     .url_logo( experienciaaModificar.getUrl_logo())
-                     .id_persona( experienciaaModificar.getPers().getId())
+                     .id_experiencia( experienciaBuscada.getId())
+                     .empresa( experienciaBuscada.getEmpresa())
+                     .descripcion( experienciaBuscada.getDescripcion())
+                     .puesto( experienciaBuscada.getPuesto())
+                     .fecha_desde( experienciaBuscada.getFecha_desde())
+                     .fecha_hasta( experienciaBuscada.getFecha_hasta())
+                     .url_logo( experienciaBuscada.getUrl_logo())
+                     .id_persona( experienciaBuscada.getPers().getId())
                   .build();
     
-             return experienciaaModificarDTO;   
+             return experienciaBuscadaDTO;   
         
     }
     

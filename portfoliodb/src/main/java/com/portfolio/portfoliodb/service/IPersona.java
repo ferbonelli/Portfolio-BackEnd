@@ -27,6 +27,8 @@ public interface IPersona {
     
     public void borrarPersonaDTO(Long id);
     
+    public PersonaDTO buscarPersonaDTO(Long id);
+    
     
     
 }

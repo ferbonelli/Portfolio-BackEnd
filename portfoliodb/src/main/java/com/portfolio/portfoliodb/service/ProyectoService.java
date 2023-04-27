@@ -112,23 +112,23 @@ public class ProyectoService implements IProyecto {
     public ProyectoDTO buscarProyectoDTO(Long id){
     
         //Busco el proyecto y la guardo en un objeto
-        Proyecto proyectoaModificar=this.buscarProyecto(id);
+        Proyecto proyectoBuscado=this.buscarProyecto(id);
         
      // Mapeo el proyecto a proyectoDTO
      
-     ProyectoDTO proyectoaModificarDTO =
+     ProyectoDTO proyectoBuscadoDTO =
              
              ProyectoDTO.builder()
-                    .id_proyecto(proyectoaModificar.getId())
-                    .nombre(proyectoaModificar.getNombre())
-                    .descripcion(proyectoaModificar.getDescripcion())
-                    .fecha_inicio(proyectoaModificar.getFecha_inicio())
-                    .fecha_final(proyectoaModificar.getFecha_final())
-                    .url_proyecto(proyectoaModificar.getUrl_proyecto())
-                    .id_persona(proyectoaModificar.getPers().getId())
+                    .id_proyecto(proyectoBuscado.getId())
+                    .nombre(proyectoBuscado.getNombre())
+                    .descripcion(proyectoBuscado.getDescripcion())
+                    .fecha_inicio(proyectoBuscado.getFecha_inicio())
+                    .fecha_final(proyectoBuscado.getFecha_final())
+                    .url_proyecto(proyectoBuscado.getUrl_proyecto())
+                    .id_persona(proyectoBuscado.getPers().getId())
                   .build();
     
-             return proyectoaModificarDTO;   
+             return proyectoBuscadoDTO;   
     }
     
 }

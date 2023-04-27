@@ -96,7 +96,28 @@ public class UsuarioService implements IUsuario {
         this.modificarUsuario(usuarioaModificar);
     }
     
+    @Override
     public void borrarUsuarioDTO(Long id){
     this.borrarUsuario(id);
+    }
+    
+    @Override
+    public UsuarioDTO buscarUsuarioDTO(Long id){
+    
+    //Busco el usuario y la guardo en un objeto
+        Usuario usuarioBuscado=this.buscarUsuario(id);
+        
+     // Mapeo el usuario a usuarioDTO
+     
+     UsuarioDTO usuarioBuscadoDTO =
+             
+             UsuarioDTO.builder()
+                     .id_usuario(usuarioBuscado.getId())
+                     .username(usuarioBuscado.getUsername())
+                     .password(usuarioBuscado.getPassword())
+                     .id_persona(usuarioBuscado.getPers().getId())
+                                       .build();
+    
+             return usuarioBuscadoDTO;   
     }
 }

@@ -27,6 +27,8 @@ public interface IUsuario {
     
     public void borrarUsuarioDTO(Long id);
     
+    public UsuarioDTO buscarUsuarioDTO(Long id);
+    
     
     
 }

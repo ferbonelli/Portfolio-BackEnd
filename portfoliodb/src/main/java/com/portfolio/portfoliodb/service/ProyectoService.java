@@ -76,6 +76,7 @@ public class ProyectoService implements IProyecto {
                         .descripcion(proyecto.getDescripcion())
                         .fecha_inicio(proyecto.getFecha_inicio())
                         .fecha_final(proyecto.getFecha_final())
+                        .url_proyecto(proyecto.getUrl_proyecto())
                         .id_persona(proyecto.getPers().getId())
                         .build();
             ListaProyectosdto.add(dto);

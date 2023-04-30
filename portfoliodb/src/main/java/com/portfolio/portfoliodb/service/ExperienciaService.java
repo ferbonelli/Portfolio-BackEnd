@@ -55,9 +55,9 @@ public class ExperienciaService implements IExperiencia{
                 .empresa(experienciaNuevaDTO.getEmpresa())
                 .puesto(experienciaNuevaDTO.getPuesto())
                 .descripcion(experienciaNuevaDTO.getDescripcion())
+                .url_logo(experienciaNuevaDTO.getUrl_logo())
                 .fecha_desde(experienciaNuevaDTO.getFecha_desde())
                 .fecha_hasta(experienciaNuevaDTO.getFecha_hasta())
-                .url_logo(experienciaNuevaDTO.getUrl_logo())
                 .pers(persoServ.buscarPersona(experienciaNuevaDTO.getId_persona()))
                 .build();
         this.crearExperiencia(experiencianueva);
@@ -80,9 +80,9 @@ public class ExperienciaService implements IExperiencia{
                     .empresa(experiencia.getEmpresa())
                     .puesto(experiencia.getPuesto())
                     .descripcion(experiencia.getDescripcion())
+                    .url_logo(experiencia.getUrl_logo())
                     .fecha_desde(experiencia.getFecha_desde())
                     .fecha_hasta(experiencia.getFecha_hasta())
-                    .url_logo(experiencia.getUrl_logo())
                     .id_persona(experiencia.getPers().getId())
                     .build();
             ListaExperienciadto.add(dto);
@@ -102,10 +102,10 @@ public class ExperienciaService implements IExperiencia{
         experienciaModificar.setEmpresa(experienciaDTO.getEmpresa());
         experienciaModificar.setPuesto(experienciaDTO.getPuesto());
         experienciaModificar.setDescripcion(experienciaDTO.getDescripcion());
+        experienciaModificar.setUrl_logo(experienciaDTO.getUrl_logo());
         experienciaModificar.setFecha_desde(experienciaDTO.getFecha_desde());
         experienciaModificar.setFecha_hasta(experienciaDTO.getFecha_hasta());
-        experienciaModificar.setUrl_logo(experienciaDTO.getUrl_logo());
-        
+                
         // Lo cargo a la base de datos
         this.modificarExperiencia(experienciaModificar);
         
@@ -130,9 +130,9 @@ public class ExperienciaService implements IExperiencia{
                      .empresa( experienciaBuscada.getEmpresa())
                      .descripcion( experienciaBuscada.getDescripcion())
                      .puesto( experienciaBuscada.getPuesto())
+                     .url_logo( experienciaBuscada.getUrl_logo())
                      .fecha_desde( experienciaBuscada.getFecha_desde())
                      .fecha_hasta( experienciaBuscada.getFecha_hasta())
-                     .url_logo( experienciaBuscada.getUrl_logo())
                      .id_persona( experienciaBuscada.getPers().getId())
                   .build();
     

@@ -51,11 +51,11 @@ public class EducacionService implements IEducacion{
         Educacion educacionNuevo =
                 Educacion.builder()
                 
-                .titulo(educacionNuevoDTO.getTitulo())
                 .institucion(educacionNuevoDTO.getInstitucion())
+                .titulo(educacionNuevoDTO.getTitulo())
+                .url_logoinst(educacionNuevoDTO.getUrl_logoinst())        
                 .fecha_inicio(educacionNuevoDTO.getFecha_inicio())
                 .fecha_final(educacionNuevoDTO.getFecha_final())
-                .url_logoinst(educacionNuevoDTO.getUrl_logoinst())
                 .pers(persoServ.buscarPersona(educacionNuevoDTO.getId_persona()))
                 .build();
         
@@ -78,9 +78,9 @@ public class EducacionService implements IEducacion{
                         .id_educacion(educacion.getId())
                         .titulo(educacion.getTitulo())
                         .institucion(educacion.getInstitucion())
+                        .url_logoinst(educacion.getUrl_logoinst())
                         .fecha_inicio(educacion.getFecha_inicio())
                         .fecha_final(educacion.getFecha_final())
-                        .url_logoinst(educacion.getUrl_logoinst())
                         .id_persona(educacion.getPers().getId())
                         .build();
             ListaEducaciondto.add(dto);
@@ -100,10 +100,10 @@ public class EducacionService implements IEducacion{
         //Cargo los datos desde el DTO
         educacionamodificar.setInstitucion(educacionDTO.getInstitucion());
         educacionamodificar.setTitulo(educacionDTO.getTitulo());
+        educacionamodificar.setUrl_logoinst(educacionDTO.getUrl_logoinst());
         educacionamodificar.setFecha_inicio(educacionDTO.getFecha_inicio());
         educacionamodificar.setFecha_final(educacionDTO.getFecha_final());
-        educacionamodificar.setUrl_logoinst(educacionDTO.getUrl_logoinst());
-        
+                
         // Lo cargo en la base de datos
         this.modificarEducacion(educacionamodificar);
         
@@ -128,9 +128,9 @@ public class EducacionService implements IEducacion{
                      .id_educacion(educacionaBuscada.getId())
                      .institucion(educacionaBuscada.getInstitucion())
                      .titulo(educacionaBuscada.getTitulo())
+                     .url_logoinst(educacionaBuscada.getUrl_logoinst())
                      .fecha_inicio(educacionaBuscada.getFecha_inicio())
                      .fecha_final(educacionaBuscada.getFecha_final())
-                     .url_logoinst(educacionaBuscada.getUrl_logoinst())
                      .id_persona(educacionaBuscada.getPers().getId())
                    .build();
     

@@ -53,6 +53,7 @@ public class ProyectoService implements IProyecto {
                         .nombre(proyectoNuevoDTO.getNombre())
                         .descripcion(proyectoNuevoDTO.getDescripcion())
                         .fecha_inicio(proyectoNuevoDTO.getFecha_inicio())
+                        .url_proyecto(proyectoNuevoDTO.getUrl_proyecto())
                         .fecha_final(proyectoNuevoDTO.getFecha_final())
                         .pers(persoServ.buscarPersona(proyectoNuevoDTO.getId_persona()))
                         .build();
@@ -95,9 +96,10 @@ public class ProyectoService implements IProyecto {
         //Cargo los datos desde el DTO
         proyectoaModificar.setNombre(proyectoDTO.getNombre());
         proyectoaModificar.setDescripcion(proyectoDTO.getDescripcion());
+        proyectoaModificar.setUrl_proyecto(proyectoDTO.getUrl_proyecto());
         proyectoaModificar.setFecha_inicio(proyectoDTO.getFecha_inicio());
         proyectoaModificar.setFecha_final(proyectoDTO.getFecha_final());
-        proyectoaModificar.setUrl_proyecto(proyectoDTO.getUrl_proyecto());
+        
         
         //Lo guardo en la base de datos
         this.modificarProyecto(proyectoaModificar);
@@ -123,9 +125,9 @@ public class ProyectoService implements IProyecto {
                     .id_proyecto(proyectoBuscado.getId())
                     .nombre(proyectoBuscado.getNombre())
                     .descripcion(proyectoBuscado.getDescripcion())
+                     .url_proyecto(proyectoBuscado.getUrl_proyecto())
                     .fecha_inicio(proyectoBuscado.getFecha_inicio())
                     .fecha_final(proyectoBuscado.getFecha_final())
-                    .url_proyecto(proyectoBuscado.getUrl_proyecto())
                     .id_persona(proyectoBuscado.getPers().getId())
                   .build();
     

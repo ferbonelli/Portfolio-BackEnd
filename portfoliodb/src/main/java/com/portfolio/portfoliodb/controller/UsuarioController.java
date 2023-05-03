@@ -24,7 +24,7 @@ public class UsuarioController {
          usuarioServ.crearUsuarioDTO(usuario);
     }
     
-    @GetMapping("/ver/usuarios")
+    @GetMapping("/usuario")
     @ResponseBody
     public List<UsuarioDTO> verUsuarios(){
         return usuarioServ.verUsuariosDTO();

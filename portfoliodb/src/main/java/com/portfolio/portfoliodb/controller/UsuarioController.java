@@ -57,10 +57,10 @@ public class UsuarioController {
           if (usuarioServ.autorizarUsuario(usuario, clave))
               
           {
-            return new ResponseEntity<>(HttpStatus.OK + ": Usuario autenticado.", HttpStatus.OK);
+            return new ResponseEntity<>("Usuario autenticado.", HttpStatus.OK);
           }  
           else {
-         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED + ": Usuario no autorizado.", HttpStatus.UNAUTHORIZED);
+         return new ResponseEntity<>( ": Usuario no autorizado.", HttpStatus.UNAUTHORIZED);
                }
           }
             

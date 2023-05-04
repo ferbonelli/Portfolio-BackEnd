@@ -5,6 +5,8 @@ import com.portfolio.portfoliodb.dto.UsuarioDTO;
 import com.portfolio.portfoliodb.service.IUsuario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +21,7 @@ public class UsuarioController {
     @Autowired
     private IUsuario usuarioServ;
     
-     @PostMapping("/usuario")
+    @PostMapping("/usuario")
     public void agregarUsuario (@RequestBody UsuarioDTO usuario) {
          usuarioServ.crearUsuarioDTO(usuario);
     }
@@ -46,5 +48,23 @@ public class UsuarioController {
     public UsuarioDTO verUsuario(@PathVariable Long id){
         return usuarioServ.buscarUsuarioDTO(id);
     }
+    
+    // Endpoint para autorizar el usuario
+    @GetMapping("/usuario/{usuario}/{clave}")
+    
+    ResponseEntity<String> autorizarUsuario(@PathVariable String usuario, @PathVariable String clave)
+       {
+          if (usuarioServ.autorizarUsuario(usuario, clave))
+              
+          {
+            return new ResponseEntity<>(HttpStatus.OK + ": Usuario autenticado.", HttpStatus.OK);
+          }  
+          else {
+         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED + ": Usuario no autorizado.", HttpStatus.UNAUTHORIZED);
+               }
+          }
+            
+   
+    
     
 }

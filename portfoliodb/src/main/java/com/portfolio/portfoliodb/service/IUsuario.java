@@ -29,6 +29,8 @@ public interface IUsuario {
     
     public UsuarioDTO buscarUsuarioDTO(Long id);
     
+    public Boolean autorizarUsuario(String usuario, String clave);
+    
     
     
 }

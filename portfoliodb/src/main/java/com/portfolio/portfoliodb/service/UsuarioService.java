@@ -83,6 +83,7 @@ public class UsuarioService implements IUsuario {
                 
     }
     
+    @Override
     public void modificarUsuarioDTO(UsuarioDTO usuarioDTO){
     
         //Busco el usuario y la guardo en un objeto
@@ -120,4 +121,33 @@ public class UsuarioService implements IUsuario {
     
              return usuarioBuscadoDTO;   
     }
+    @Override
+    public Boolean autorizarUsuario(String usuario, String clave){
+    
+        //Busco mi usuario y la guardo en un objeto
+        long id=2;
+        Usuario usuarioAutenticar=this.buscarUsuario(id);
+          
+        System.out.println (usuarioAutenticar.getUsername()); 
+          System.out.println (usuarioAutenticar.getPassword()); 
+          System.out.println (usuario);
+          System.out.println (clave);
+        
+        
+        if (usuario.equals(usuarioAutenticar.getUsername())  &&
+                clave.equals(usuarioAutenticar.getPassword()))
+    
+        {
+         System.out.println (" Se autenticó ok");
+         return true;
+        }
+        
+        else
+        {
+         System.out.println (" Usuario o clave incorrecta"); 
+         return false;
+        }
+    
+    }
+    
 }

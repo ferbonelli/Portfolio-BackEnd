@@ -30,4 +30,6 @@ public interface IExperiencia {
     
     public ExperienciaDTO buscarExperienciaDTO(Long id);
     
+    
+    
 }

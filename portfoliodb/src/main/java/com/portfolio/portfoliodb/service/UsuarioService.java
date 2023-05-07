@@ -124,15 +124,10 @@ public class UsuarioService implements IUsuario {
     @Override
     public Boolean autorizarUsuario(String usuario, String clave){
     
-        //Busco mi usuario y la guardo en un objeto
+        //Busco mi usuario y la guardo en un objeto. Después comparo credenciales
         long id=2;
         Usuario usuarioAutenticar=this.buscarUsuario(id);
-          
-        System.out.println (usuarioAutenticar.getUsername()); 
-          System.out.println (usuarioAutenticar.getPassword()); 
-          System.out.println (usuario);
-          System.out.println (clave);
-        
+                       
         
         if (usuario.equals(usuarioAutenticar.getUsername())  &&
                 clave.equals(usuarioAutenticar.getPassword()))

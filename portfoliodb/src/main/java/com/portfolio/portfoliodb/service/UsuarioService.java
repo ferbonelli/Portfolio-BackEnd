@@ -137,16 +137,14 @@ public class UsuarioService implements IUsuario {
         if (usuario.equals(usuarioAutenticar.getUsername())  &&
                 clave.equals(usuarioAutenticar.getPassword()))
     
-        {
-         System.out.println (" Se autenticó ok");
-         return true;
-        }
+            {
+                return true;
+            }
         
-        else
-        {
-         System.out.println (" Usuario o clave incorrecta"); 
-         return false;
-        }
+            else
+            {
+               return false;
+            }
     
     }
     

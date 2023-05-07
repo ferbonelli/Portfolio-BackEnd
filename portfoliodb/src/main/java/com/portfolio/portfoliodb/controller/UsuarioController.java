@@ -50,18 +50,18 @@ public class UsuarioController {
     }
     
     // Endpoint para autorizar el usuario
-    @GetMapping("/usuario/{usuario}/{clave}")
+    @PostMapping("/usuario/{usuario}/{clave}")
     
-    ResponseEntity<String> autorizarUsuario(@PathVariable String usuario,
+    ResponseEntity autorizarUsuario(@PathVariable String usuario,
                                                  @PathVariable String clave)                                            
        {
           if (usuarioServ.autorizarUsuario(usuario, clave))
               
           {        
-          return new ResponseEntity(("Usuario autorizado."), HttpStatus.OK);
+          return new ResponseEntity("", HttpStatus.OK);
           }  
           else {
-         return new ResponseEntity( ("Usuario no autorizado."), HttpStatus.UNAUTHORIZED);
+         return new ResponseEntity( "", HttpStatus.UNAUTHORIZED);
                }
           }
             

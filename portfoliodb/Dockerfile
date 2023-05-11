@@ -1,4 +1,4 @@
-FROM amazoncorretto:17-alpine:jdk
+FROM amazoncorretto:11-alpine:jdk
 
 COPY target/portfoliodb-0.0.1-SNAPSHOT.jar app.jar
 

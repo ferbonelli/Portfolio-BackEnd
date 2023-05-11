@@ -1,4 +1,4 @@
-FROM amazoncorretto:17-alpine:latest
+FROM openjdk:17-alpine
 
 COPY target/portfoliodb-0.0.1-SNAPSHOT.jar app.jar
 
